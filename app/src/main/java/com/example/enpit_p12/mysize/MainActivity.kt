@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
     private fun onSaveTapped(){
         val pref = PreferenceManager.getDefaultSharedPreferences(this)
         val editor = pref.edit()
+        editor.putString("NECK", neck.text.toString())
+                .putString("SLEEVE", sleeve.text.toString())
 
     }
 }
