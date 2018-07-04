@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         save.setOnClickListener { onSaveTapped() }
+
+        heightButton.setOnClickListener{
+            startActivity<HeightActivity>()
+        }
     }
 
     private fun onSaveTapped(){
@@ -32,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         val editor = pref.edit()
         editor.putString("NECK", neck.text.toString())
                 .putString("SLEEVE", sleeve.text.toString())
-
+                .putString("WAIST", waist.text.toString())
+                .putString("INSEAM", inseam.text.toString())
+                .apply()
     }
 }
